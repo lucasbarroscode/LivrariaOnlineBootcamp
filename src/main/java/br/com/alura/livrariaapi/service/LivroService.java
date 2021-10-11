@@ -5,6 +5,8 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,9 +22,9 @@ public class LivroService {
 	private LivroRepository livroRepository;
 	private ModelMapper modelMapper = new ModelMapper();
 
-	public List<LivroDto> listar() {
-		List<Livro> livros = livroRepository.findAll();
-		return livros.stream().map(t -> modelMapper.map(t, LivroDto.class)).collect(Collectors.toList());
+	public Page<LivroDto> listar(Pageable paginacao) {
+		Page<Livro> livros = livroRepository.findAll(paginacao);
+		return livros.map(t -> modelMapper.map(t, LivroDto.class));
 	}
 
 	@Transactional
