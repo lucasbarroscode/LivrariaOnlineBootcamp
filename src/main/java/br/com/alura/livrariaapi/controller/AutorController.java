@@ -21,7 +21,7 @@ import br.com.alura.livrariaapi.service.AutorService;
 
 @RestController
 @RequestMapping("/autores")
-public class AutoresController {
+public class AutorController {
 	
 
 	

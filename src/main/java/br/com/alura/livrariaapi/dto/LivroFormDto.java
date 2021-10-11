@@ -8,6 +8,9 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
+import br.com.alura.livrariaapi.modelo.Autor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +26,7 @@ public class LivroFormDto {
 	@NotNull
 	@Min(value = 100, message = "Idade Inválida!")
 	private int numPaginas;
-	@NotBlank
-	private String autor;
+	
+	@JsonAlias("autor_id")
+	private Long autorId;
 }
