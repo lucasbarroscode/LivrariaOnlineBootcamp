@@ -29,9 +29,11 @@ public class AutorService {
 		return autores.map(t -> modelMapper.map(t, AutorDto.class));
 	}
 
-	public void cadastrar(AutorFormDto dto) {
+	public AutorDto cadastrar(AutorFormDto dto) {
 		Autor autor = modelMapper.map(dto, Autor.class);
 		autorRepository.save(autor);
+		
+		return modelMapper.map(autor, AutorDto.class);
 
 	}
 
