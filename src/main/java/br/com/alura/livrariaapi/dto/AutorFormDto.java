@@ -3,6 +3,7 @@ package br.com.alura.livrariaapi.dto;
 import java.time.LocalDate;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
@@ -13,15 +14,17 @@ import lombok.Setter;
 @Setter
 public class AutorFormDto {
 
-	@NotNull
+	@NotBlank
 	private String nome;
-	@NotNull
-	@Email(message = "Email should be valid")
+	
+	@NotBlank
+	@Email
 	private String email;
 	
 	@PastOrPresent
 	private LocalDate data;
-	@NotNull
+	
+	@NotBlank
 	private String miniCV;
 	
 	

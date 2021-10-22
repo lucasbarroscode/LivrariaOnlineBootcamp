@@ -23,8 +23,10 @@ public class LivroFormDto {
 	private String titulo;
 	@PastOrPresent
 	private LocalDate dataLancamento;
+	
+	
 	@NotNull
-	@Min(value = 100, message = "Idade Inválida!")
+	@Min(value = 100)
 	private int numPaginas;
 	
 	@JsonAlias("autor_id")
