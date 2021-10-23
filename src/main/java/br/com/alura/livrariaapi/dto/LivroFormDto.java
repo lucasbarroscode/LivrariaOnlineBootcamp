@@ -11,11 +11,15 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonAlias;
 
 import br.com.alura.livrariaapi.modelo.Autor;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class LivroFormDto {
 
 	@NotBlank
