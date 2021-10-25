@@ -31,5 +31,14 @@ public class Autor {
 	private LocalDate data;
 	private String miniCV;
 	
+	public Autor(String nome, String email, LocalDate data, String miniCV) {
+		this.nome = nome;
+		this.email = email;
+		this.data = data;
+		this.miniCV = miniCV;
+	}
+	
+	
+	
 
 }
