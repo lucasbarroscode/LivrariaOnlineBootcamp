@@ -17,8 +17,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import br.com.alura.livrariaapi.dto.LivroDto;
 import br.com.alura.livrariaapi.dto.LivroFormDto;
 import br.com.alura.livrariaapi.modelo.Autor;
+import br.com.alura.livrariaapi.modelo.Usuario;
 import br.com.alura.livrariaapi.repository.AutorRepository;
 import br.com.alura.livrariaapi.repository.LivroRepository;
+import br.com.alura.livrariaapi.repository.UsuarioRepository;
 
 @ExtendWith(MockitoExtension.class)
 class LivroServiceTest {
@@ -29,8 +31,15 @@ class LivroServiceTest {
 	@Mock
 	private AutorRepository autorRepository;
 	
+	@Mock
+	private UsuarioRepository usuarioRepository;
+	
 	@InjectMocks
 	private LivroService service;
+	
+	//private Usuario logado;
+	
+	//private Autor escritor;
 
 	@Test
 	void deveriaCadastrarUmLivro() {
@@ -42,6 +51,9 @@ class LivroServiceTest {
 				1l
 				);
 		
+//		Mockito
+//		.when(usuarioRepository.getById(formDto.getUsuarioId()))
+//		.thenReturn(logado);
 		
 		Mockito
 		.when(autorRepository
@@ -66,7 +78,7 @@ class LivroServiceTest {
 				6l
 				);
 		
-		
+		//Mockito.when(usuarioRepository.getById(formDto.getUsuarioId())).thenThrow(EntityNotFoundException.class);
 		
 		Mockito
 		.when(autorRepository.getById(formDto.getAutorId()))

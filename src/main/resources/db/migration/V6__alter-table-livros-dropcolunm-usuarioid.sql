@@ -1,0 +1,1 @@
+alter table livros drop column usuario_id;

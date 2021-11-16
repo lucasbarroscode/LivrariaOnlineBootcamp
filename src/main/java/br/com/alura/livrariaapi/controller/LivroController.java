@@ -1,14 +1,10 @@
 package br.com.alura.livrariaapi.controller;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,10 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.alura.livrariaapi.dto.AtualizacaoLivroFormDto;
-import br.com.alura.livrariaapi.dto.LivroDetalhadaDto;
 import br.com.alura.livrariaapi.dto.LivroDto;
 import br.com.alura.livrariaapi.dto.LivroFormDto;
-import br.com.alura.livrariaapi.modelo.Livro;
 import br.com.alura.livrariaapi.service.LivroService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,6 +39,7 @@ public class LivroController {
 	
 	@GetMapping
 	@ApiOperation("Listar livros")
+	//public Page<LivroDto> listar (@PageableDefault(size=10)Pageable paginacao, @ApiIgnore @AuthenticationPrincipal Autor escritor) {
 	public Page<LivroDto> listar (@PageableDefault(size=10)Pageable paginacao) {
 		return service.listar(paginacao);
 		

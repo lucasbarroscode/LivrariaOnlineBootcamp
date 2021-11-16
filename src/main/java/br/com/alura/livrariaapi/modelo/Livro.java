@@ -34,6 +34,9 @@ public class Livro {
 	@ManyToOne
 	private Autor autor;
 	
+//	@ManyToOne
+//	private Usuario usuario;
+	
 
 	public Livro(String titulo, LocalDate dataLancamento, Integer numPaginas, Autor autor) {
 		
@@ -49,6 +52,10 @@ public class Livro {
 		this.numPaginas = numPaginas;
 		
 		
+	}
+
+	public boolean pertenceAoAutor(Autor autor) {
+		return this.autor.equals(autor);
 	}
 	
 	

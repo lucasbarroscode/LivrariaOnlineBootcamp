@@ -2,7 +2,6 @@ package br.com.alura.livrariaapi.dto;
 
 import java.time.LocalDate;
 
-import br.com.alura.livrariaapi.modelo.Autor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,5 +13,5 @@ public class LivroDto {
 	private String titulo;
 	private LocalDate dataLancamento;
 	private Integer numPaginas;
-	private Autor autor;
+	private AutorDto autor;
 }
