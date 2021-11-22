@@ -1,1 +1,1 @@
-alter table livros drop column usuario_id;
+--alter table livros drop column usuario_id;
