@@ -85,11 +85,11 @@
 ////				Assertions.tuple("Juliana Carvalho", 3l, 10.0),
 ////				Assertions.tuple("Rita de Assis", 4l, 10.0),
 ////				Assertions.tuple("Rodrigo de Souza", 5l, 10.0)
-//				Assertions.tuple("Lucas Barros", 16l, 20.0),
-//				Assertions.tuple("Lucas Barros", 17l, 20.0),
-//				Assertions.tuple("Lucas Barros", 18l, 20.0),
-//				Assertions.tuple("Lucas Barros", 19l, 20.0),
-//				Assertions.tuple("Lucas Barros", 20l, 20.0)
+//				Assertions.tuple("Lucas Barros", 1l, 20.0),
+//				Assertions.tuple("Lucas Barros", 2l, 20.0),
+//				Assertions.tuple("Lucas Barros", 3l, 20.0),
+//				Assertions.tuple("Lucas Barros", 4l, 20.0),
+//				Assertions.tuple("Lucas Barros", 5l, 20.0)
 //				);
 //	}
 //

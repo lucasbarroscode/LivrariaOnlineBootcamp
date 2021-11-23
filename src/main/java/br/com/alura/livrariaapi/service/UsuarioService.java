@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.alura.livrariaapi.dto.UsuarioDto;
 import br.com.alura.livrariaapi.dto.UsuarioFormDto;
+import br.com.alura.livrariaapi.infra.EnviadorDeEmail;
 import br.com.alura.livrariaapi.modelo.Usuario;
 import br.com.alura.livrariaapi.repository.UsuarioRepository;
 
@@ -27,8 +28,8 @@ public class UsuarioService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-//	@Autowired
-//	private PerfilRepository perfilRepository;
+	@Autowired
+	private EnviadorDeEmail enviadorDeEmail;
 	
 	
 	public Page<UsuarioDto> listar(Pageable paginacao) {
@@ -44,15 +45,21 @@ public class UsuarioService {
 		Usuario usuario = modelMapper.map(dto, Usuario.class);		
 		usuario.setId(null);
 		
-		
-		//Perfil perfil = perfilRepository.getById(dto.getPerfilId());
-		
-		//usuario.adicionarPerfil(perfil);
+
 		
 		String senha = new Random().nextInt(999999) + "";
 		usuario.setSenha(bCryptPasswordEncoder.encode(senha));
 		
 		usuarioRepository.save(usuario);
+		
+		String destinatario = usuario.getEmail();
+		String assunto = "Livraria - Bem Vindo!";
+		//PESQUISAR TIMELEAF(PARA FAZER TEMPLATE DE PAGINAS) PARA CRIAR UM TEMPLATE DE EMAIL COM HTML
+		String mensagem = String.format("Olá %s!\n\n"
+				+ "Segue seus dados de acesso ao sistema livraria:"
+				+ "\nLogin:%s\nSenha:%s",usuario.getNome(), usuario.getLogin(), senha);
+		enviadorDeEmail.enviarEmail(destinatario, assunto, mensagem);
+		
 		
 		return modelMapper.map(usuario, UsuarioDto.class);
 		
